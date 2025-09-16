@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>General Trading</title>
+        <link rel="icon" type="image/x-icon" href="/asset/favicon.ico" />
+        <link rel="stylesheet" href="/Css/general.css" />
+        <!--Box Icons-->
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <!-- Link Swiper's CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
+        <!-- Google Icon -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mail"
+        />
+    </head>
+    <body>
+        <!--Navbar-->
+        <header>
+            <a href="#" title="CV Taketaka machinery Sejahtera">
+                <div class="profile">
+                    <img src="/asset/taketaka.png" alt="" />
+                    <span>CV Taketaka</span>
+                </div>
+            </a>
+
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <!--Nav list-->
+            <ul class="navbar">
+                <li><a href="/html/Index.html">Home</a></li>
+
+                <!-- Kategori dengan Dropdown -->
+                <li class="dropdown">
+                    <a href="#"> Product <i class="bx bx-chevron-down"></i> </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/html/general.html">General Tranding</a>
+                        </li>
+                        <li>
+                            <a href="/html/Pagar & Kanopy.html"
+                                >Pagar & Kanopi</a
+                            >
+                        </li>
+                        <li>
+                            <a href="/html/pabrikasi.html">Pabrikasi</a>
+                        </li>
+                        <li><a href="/html/jasa.html">Jasa </a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/#products">Katalog</a></li>
+                <li><a href="/#about">About Us</a></li>
+                <li><a href="/#customers">Galery</a></li>
+                <li><a href="/#location">Our Location</a></li>
+            </ul>
+        </header>
+        <!-- Navbar End -->
+
+        <section class="home swiper" id="home">
+            <div class="line"></div>
+        </section>
+
+        <!-- Products -->
+        <section class="bagian" id="products">
+            <div class="heading">
+                <h1>General Trading</h1>
+                <br />
+            </div>
+
+            <!-- Product Content -->
+            <div class="products-conatiner">
+                <!-- Box 1 -->
+                <div
+                    class="box"
+                    onclick="openModal('komvayer Panbel',  '/asset/conveyor.jpg')"
+                >
+                    <img
+                        src="/asset/conveyor.jpg"
+                        alt=""
+                        class="product-image"
+                    />
+                    <h2 class="product-name">Komvayer Birahi</h2>
+                    <div class="product-info">
+                        <div class="add-to-cart">
+                            <i class="bx bx-cart-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pop Up End -->
+            </div>
+            <!-- Popup Modal -->
+            <div id="productModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()"> &times;</span>
+                    <div class="modal-body">
+                        <div class="modal-image">
+                            <img
+                                id="modalImage"
+                                src="/asset/conveyor.jpg"
+                                alt="Product Detail"
+                            />
+                        </div>
+                        <div class="modal-description">
+                            <h2 class="underline-heading">
+                                <span
+                                    class="underline"
+                                    id="modalProductName"
+                                ></span>
+                            </h2>
+                            <br />
+                            <p><strong>Product Description:</strong></p>
+                            <p class="justify-text product-description">
+                                Ready Table Top Chains Plastik Dan Stainless
+                                Straight Dan Radius Mohon cantumkan spesifikasi
+                                table topchains yang dibutuhkan beserta
+                                ukurannya karena harga menyesuaikan dengan type
+                                dan ukuran table topchains Kami juga menjual
+                                type dan macam-macam table topChains
+                            </p>
+                            <br />
+                            <p class="justify-text">
+                                Silahkan cek di toko kami..
+                            </p>
+                            <br />
+                            <p class="small-text">
+                                <strong>Available at:</strong>
+                            </p>
+                            <ul class="marketplaces">
+                                <li>
+                                    <img
+                                        src="/asset/Tokopedia.png"
+                                        alt="Tokopedia"
+                                    />
+                                    <strong> Tokopedia</strong>
+                                </li>
+                                <li>
+                                    <img src="/asset/wa.png" alt="WhatsApp" />
+                                    <strong>WhatsApp</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Wa -->
+        <div class="kontak">
+            <div class="buttons-container">
+                <!-- WhatsApp -->
+                <div class="WhatsApp expand" title="WhatsApp">
+                    <a
+                        class="wa_btn"
+                        href="https://wa.me/628871043315?text=Hii...%20Kak%20saya%20berminat%20membeli%20%20ini"
+                    >
+                        <i class="bx bxl-whatsapp"></i>
+                    </a>
+                </div>
+                <!-- Gmail -->
+                <div class="gmail expand" title="Gmail">
+                    <a class="mail_btn" href="">
+                        <span class="material-symbols-outlined">mail </span>
+                    </a>
+                </div>
+                <!-- Angel-up -->
+                <div class="footer-iconTop show">
+                    <a href="#home" title="Kembali ke atas"
+                        ><i class="bx bx-chevrons-up"></i
+                    ></a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <section class="footer" id="footer">
+            <div class="footer-box">
+                <p>
+                    Perum Taman Rajeg, J-05/08 RT/RW <br />020/007, Desa
+                    Mekarsari, Kec. Rajeg, <br />Kab. Tangerang-Banten.
+                </p>
+                <div class="social">
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://www.instagram.com/ancuy_ch/"
+                        ><i class="bx bxl-instagram"></i
+                    ></a>
+                    <a
+                        href="https://www.youtube.com/channel/UCCXECTaWo3OfkNW8MxjPfpw"
+                        ><i class="bx bxl-youtube"></i
+                    ></a>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h2>Kategori</h2>
+                <a href="/html/general.html">General Trading</a>
+                <a href="/html/Pagar & Kanopy.html">Pagar & Kanopy</a>
+                <a href="/html/pabrikasi.html">Pabrikasi</a>
+                <a href="/html/jasa.html">Jasa</a>
+            </div>
+            <div class="footer-box">
+                <h2>Beranda</h2>
+                <a href="#home">Home</a>
+                <a href="#categories">Kategori</a>
+                <a href="#products">Katalog</a>
+                <a href="#about">About Us</a>
+                <a href="#customers">Galery</a>
+            </div>
+        </section>
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>&#169; CV Taketaka Machinery Sejahtera All Right Reserved</p>
+        </div>
+        <!-- JS Swiper -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+        <!-- Link Js -->
+        <script src="/js/gnrl.js"></script>
+        <script>
+            const produkContainer = document.querySelector(
+                ".products-conatiner"
+            );
+            function muatDataBarang(kategori) {
+                fetch(
+                    `/backend/kelola_barang.php?request_product&jenis_produk=${kategori}`,
+                    {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json", // Sets the Content-Type header
+                        },
+                    }
+                )
+                    .then(async (respon) => {
+                        const data = await respon.json();
+                        if (!respon.ok) {
+                            throw new Error(data.message);
+                        }
+                        return data;
+                    })
+                    .then((data) => {
+                        let listBarang = "";
+                        const dataBarang = data.data;
+                        dataBarang.forEach((barang) => {
+                            listBarang += `
+                                <div
+                                    class="box"
+                                    onclick="openModal('${barang.nama_produk}',  '${barang.gambar_produk}', '${barang.deskripsi_produk}')"
+                                >
+                                    <img
+                                        src="/asset/conveyor.jpg"
+                                        alt=""
+                                        class="product-image"
+                                    />
+                                    <h2 class="product-name">${barang.gambar_produk}</h2>
+                                    <div class="product-info">
+                                        <div class="add-to-cart">
+                                            <i class="bx bx-cart-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        produkContainer.innerHTML = listBarang;
+                        muatAnimasiKatalog();
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+            }
+
+            muatDataBarang("General%20Trading");
+        </script>
+    </body>
+</html>

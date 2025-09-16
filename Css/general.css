@@ -1,0 +1,620 @@
+/*Google Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+    font-family: "poppins", sans-serif;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+/*Variabel*/
+:root {
+    --green-color: #3cb815;
+    --light-green-color: #c0eb7b;
+    --orange-color: #ff7e00;
+    --light-orange-color: #f75f1d;
+    --text-color: #1a2428;
+    --bg-color: #fff;
+}
+
+/* Custom Scroll Bar */
+::-webkit-scrollbar {
+    width: 0.5rem;
+    background: var(--light-green-color);
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar-thumb {
+    width: 0.5rem;
+    background: var(--green-color);
+    border-radius: 5rem;
+}
+section {
+    padding: 4.5rem 0 1.5rem;
+}
+
+img {
+    width: 100%;
+}
+body {
+    color: var(--text-color);
+}
+header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-color);
+    box-shadow: 0 8px 11px rgb(14, 55, 54, 5%);
+    padding: 20px 100px;
+    transition: 0.5s;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    cursor: pointer;
+}
+.profile img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+.profile span {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-icon span {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: var(--green-color);
+    color: var(--bg-color);
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 50%;
+}
+.navbar {
+    display: flex;
+    column-gap: 0.5rem;
+}
+.navbar a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+}
+.navbar a:hover,
+.navbar .home-active {
+    background: var(--green-color);
+    border-radius: 5rem;
+    color: var(--bg-color);
+    transition: ("background") 0.5s;
+}
+
+/* Style dropdown */
+.navbar .dropdown {
+    position: relative;
+}
+
+.navbar .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    background: white;
+    min-width: 190px;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.171);
+    display: none;
+    z-index: 1000;
+    border-radius: 20px;
+}
+
+.navbar .dropdown-menu li {
+    display: block;
+}
+
+.navbar .dropdown-menu li a {
+    padding: 10px 16px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+
+.navbar .dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+    color: green;
+}
+
+/* Tampilkan dropdown saat hover */
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    z-index: none;
+    display: none;
+}
+
+.konten {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container img {
+    width: 400px;
+}
+.home-text {
+    position: absolute;
+    top: -20px;
+    position: relative;
+    text-align: justify;
+    font-size: 15px;
+    text-align: justify;
+}
+.home-text span {
+    font-weight: 400;
+    color: var(--green-color);
+    display: block;
+    margin-top: -10px;
+}
+.home-text h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.home {
+    position: relative;
+    height: 10px;
+    background: #fff;
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--green-color);
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: line-timer 7s cubic-bezier(0.4, 0, 0, 1) infinite;
+    z-index: 1000;
+    padding-top: 0;
+}
+
+@keyframes line-timer {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.7;
+    }
+    40% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    60% {
+        transform: translateX(0);
+        opacity: 1;
+        animation-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0.5;
+    }
+}
+
+/* Our Product */
+.heading {
+    text-align: center;
+}
+
+.products {
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.products-conatiner {
+    display: flex;
+    grid-template-columns: (auto-fit, minmax(280px auto));
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.products-conatiner .box {
+    width: 300px;
+    height: 330px; /* tinggi tetap agar semua box seragam */
+    padding: 20px;
+    box-shadow: 1px 2px 11px 4px rgb(14 55 54 /10%);
+    border-radius: 0.5rem;
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.products-conatiner .box img {
+    width: 100%;
+    max-height: 250px;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    padding: 0 10px;
+    cursor: default;
+    text-align: center;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    margin: 8px 0;
+}
+
+.products-conatiner .box .bx-cart-alt {
+    /* Troli */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    background: var(--green-color);
+    color: var(--bg-color);
+    font-size: 20px;
+    text-align: center;
+    border-radius: 0.5rem 0 0.5rem 0;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.products-conatiner .box .bx-cart-alt:hover {
+    background: var(--orange-color);
+    transition: 0.2s all linear;
+}
+
+/* Animasi Product */
+.box {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.box.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Product End */
+
+/* Pop Up Style */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 70%;
+    max-width: 800px;
+    min-height: 62vh;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.modal-image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal-description {
+    flex: 1;
+    min-width: 250px;
+}
+
+.underline {
+    border-bottom: 2px solid #000;
+    padding-bottom: 2px;
+}
+
+.justify-text {
+    text-align: justify;
+    font-size: 12px;
+    color: #00000083;
+}
+
+.small-text {
+    font-size: 13px;
+}
+
+.marketplaces strong {
+    font-size: 12px; /* Atur sesuai kebutuhan, misalnya 12px, 14px, dll */
+    font-weight: 700; /* Opsional: bisa dikurangi kalau terlalu tebal */
+}
+
+.marketplaces li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.marketplaces img {
+    width: 24px;
+    height: 24px;
+}
+
+.modal,
+.modal-content,
+.modal-description,
+.modal-body,
+.justify-text,
+.small-text {
+    cursor: default;
+}
+
+.heading h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.heading span {
+    color: var(--green-color);
+}
+.bagian {
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+/* Kontak */
+.kontak {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.kontak .WhatsApp,
+.kontak .gmail,
+.footer-iconTop {
+    display: flex;
+    align-items: center;
+}
+
+/* Container untuk menampung tombol */
+.buttons-container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    gap: 10px;
+    z-index: 9999;
+}
+
+/* Wa button */
+.wa_btn,
+.mail_btn {
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    padding: 6px 9px;
+    gap: 10px;
+    width: 41px;
+    height: 41px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.WhatsApp .wa_btn {
+    background-color: rgb(13, 158, 45);
+}
+
+.WhatsApp .wa_btn:hover {
+    background-color: rgb(10, 133, 36);
+    transform: scale(1.2);
+}
+
+.gmail .mail_btn {
+    background-color: #eb1717;
+}
+
+.gmail .mail_btn:hover {
+    background-color: #910d0d;
+    transform: scale(1.2);
+}
+
+.wa_btn *,
+.mail_btn * {
+    color: #fff;
+}
+
+.wa_btn i,
+.mail_btn span {
+    font-size: 25px;
+}
+
+.wa_btn span,
+.mail_btn span {
+    display: inline-block;
+    width: 107px;
+    white-space: nowrap;
+}
+
+/* Angle-up */
+.footer-iconTop {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 9rem;
+    z-index: 1000;
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem;
+    background: var(--green-color);
+    border-radius: 50px;
+    transition: 0.5s ease;
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1rem var(--text-color);
+}
+
+.footer-iconTop a i {
+    font-size: 2.1rem;
+    color: var(--bg-color);
+}
+/* Angele -up End */
+
+/* Sembunyikan tombol saat scroll ke atas */
+.footer-iconTop.hide {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-iconTop.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Animasi End */
+
+.footer {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    gap: 1.5rem;
+    margin-top: 5rem;
+    background: #fef4ea;
+    border-radius: 0.5rem;
+    padding: 80px;
+}
+.footer-box {
+    display: flex;
+    flex-direction: column;
+}
+.footer-box p {
+    font-size: 0.938rem;
+    margin: 0.5rem 0 1rem;
+    text-align: justify;
+}
+.social {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+.social .bx {
+    padding: 10px;
+    background: var(--bg-color);
+    color: var(--green-color);
+    border-radius: 5rem;
+    font-size: 20px;
+    cursor: pointer;
+}
+.social .bx:hover {
+    background: var(--green-color);
+    color: var(--bg-color);
+    transition: 0.2s all linear;
+}
+.footer-box h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.footer-box a {
+    color: #868a92;
+    margin-bottom: 1rem;
+}
+.footer-box a:hover {
+    color: var(--light-orange-color);
+}
+
+.footer-box form .bxs-envelope {
+    color: var(--green-color);
+}
+.copyright {
+    text-align: center;
+    padding: 20px;
+}

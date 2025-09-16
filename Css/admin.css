@@ -1,0 +1,635 @@
+/* Font google */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+:root {
+    --poppines: "Poppins", sans-serif;
+    --lato: "Lato", sans-serif;
+
+    --light: #f9f9f9;
+
+    --blue: #3c91e6;
+
+    --light-blue: #cfe8ff;
+
+    --grey: #eee;
+
+    --dark-grey: #aaaaaa;
+
+    --dark: #342e37;
+
+    --red: #db504a;
+
+    --yellow: #ffce26;
+
+    --light-yellow: #fff2c6;
+
+    --orange: #fd7238;
+
+    --light-orange: #ffe0d3;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--grey);
+}
+
+/* Rol Sidebar */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--light);
+    z-index: 1000;
+    font-family: var(lato);
+    transition: 0.3s ease;
+    overflow-x: hidden;
+}
+
+#sidebar.hide {
+    width: 60px;
+}
+
+.brand .text {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-color);
+    position: relative;
+    top: -5px; /* geser ke atas sedikit */
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* jarak logo dengan teks */
+    padding: 15px;
+    text-decoration: none;
+}
+
+.brand .logo-img {
+    width: 50px; /* atur ukuran logo */
+    height: 40px;
+    object-fit: contain;
+    border-radius: 6px; /* opsional: kasih sudut rounded */
+    margin-top: -5px;
+}
+
+#sidebar .side-menu {
+    width: 100%;
+    margin-top: 48px;
+    padding-left: 0;
+}
+
+#sidebar .side-menu li {
+    height: 48px;
+    background: transparent;
+    margin-left: 6px;
+    border-radius: 48px 0 0 48px;
+    padding: 5px 4px 0;
+}
+#sidebar .side-menu li.active {
+    background: var(--grey);
+    position: relative;
+}
+
+#sidebar .side-menu li.active::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -40px;
+    right: 0;
+    box-shadow: 20px 20px 0 var(--grey);
+    z-index: -1;
+}
+#sidebar .side-menu li.active::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    bottom: -40px;
+    right: 0;
+    box-shadow: 20px -20px 0 var(--grey);
+    z-index: -1;
+}
+#sidebar .side-menu li a {
+    width: 100%;
+    height: 90%;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+#sidebar.hide .side-menu li.active a {
+    color: var(--blue);
+}
+
+#sidebar.hide .side-menu li a {
+    width: calc(48px - (4px * 2));
+    transition: width 0.3s ease;
+}
+
+#sidebar .side-menu li a.logout {
+    color: var(--red);
+}
+
+#sidebar .side-menu.top li a:hover {
+    color: var(--blue);
+}
+#sidebar .side-menu li a .bx {
+    min-width: calc(60px - ((4px + 6px) * 2));
+    display: flex;
+    justify-content: center;
+}
+/* Sidebar */
+
+/* Content */
+#content {
+    position: relative;
+    width: calc(100% - 280px);
+    left: 280px;
+    transition: all 0.3 ease;
+}
+
+#sidebar.hide ~ #content {
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+#sidebar.hide ~ #content nav {
+    left: 60px;
+    width: calc(100% - 60px);
+    transition: all 0.3 ease;
+}
+
+/* Nabvar */
+#content nav {
+    position: fixed;
+    top: 0;
+    left: 280px; /* geser nav sejajar setelah sidebar */
+    width: calc(100% - 280px); /* agar tidak nabrak sidebar */
+    height: 56px;
+    background: var(--light);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    font-family: var(--lato);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+#content nav .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara ikon bell dan gambar */
+    margin-left: auto;
+}
+
+#content nav::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -40px;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: -20px -20px var(--light);
+}
+
+#content nav a {
+    color: var(--dark);
+}
+#content nav .bx.bx-menu {
+    cursor: pointer;
+}
+
+#content nav .nav-link {
+    font-size: 16px;
+}
+
+#content nav .nav-link:hover {
+    color: var(--blue);
+}
+
+#content nav .profile img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+/* Nontifikasi Num End */
+
+/* Pop Up profile*/
+.account-popup {
+    width: 300px;
+    height: 300px;
+    padding: 40px;
+    background: #e8f3e8;
+    border-radius: 25px;
+    box-shadow: 0 2px 15px rgba(1, 1, 0.2, 0.5);
+    font-family: "Segoe UI", sans-serif;
+    text-align: center;
+    z-index: 1000;
+    position: fixed; /* tetap menempel layar */
+    top: 60px;
+    right: 40px; /* ✅ geser lebih ke kanan */
+    display: none;
+}
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-email {
+    font-weight: bold;
+    font-size: 15px; /* dari 15px */
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top: -25px; /* sedikit naik */
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 30px; /* dari 30px */
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #e74c3c;
+    transform: scale(1.1);
+}
+
+.account-avatar img {
+    width: 70px; /* dari 90px */
+    background: #d6e7d6;
+    padding: 6px;
+    border-radius: 50%;
+    margin: 0, 0;
+}
+
+.welcome-text {
+    margin-top: -1px; /* atau sesuaikan seperti -5px, -15px */
+}
+
+.btn-outline {
+    border: 1px solid #333;
+    padding: 10px 30px; /* lebih kecil */
+    border-radius: 25px;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.account-actions,
+.btn-link-wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 14px 0;
+    margin-right: 3px;
+}
+
+.account-actions button,
+.btn-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 24px;
+    gap: 10px;
+    flex: 1;
+    background-color: white;
+    border-radius: 36px;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--green-color);
+    min-width: 120px;
+    white-space: nowrap;
+    height: var(--btn-height, 45px); /* default tinggi 55px */
+}
+
+.account-actions button i,
+.btn-link i {
+    font-size: 25px;
+}
+
+.account-actions button:hover,
+.btn-link:hover {
+    background-color: #1dde1d;
+    color: #d6e7d6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+footer {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* MAIN */
+#content main {
+    width: 90%;
+    padding: 45px 24px;
+    font-family: var(--poppines);
+    max-height: calc(100vh - 56px);
+}
+
+#content main .head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 16px;
+    flex-wrap: wrap;
+}
+
+#content main .head-title .left h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--dark);
+    margin-left: 38px;
+}
+
+#content main .head-title .left .breadcrumb {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+}
+
+#content main .head-title .left .breadcrumb li {
+    color: var(--dark);
+}
+
+#content main .head-title .left .breadcrumb li a {
+    color: var(--blue);
+    pointer-events: unset;
+}
+
+#content main .head-title .left .breadcrumb li a.active {
+    color: var(--dark-grey);
+    pointer-events: none;
+}
+/* MAIN END */
+
+/* Kategori */
+#content main .box-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 24px;
+    margin-top: 36px;
+}
+
+#content main .box-info li {
+    padding: 30px;
+    background: var(--light);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    text-align: center; /* Tengah untuk teks */
+    justify-content: center; /* Tengah vertikal */
+}
+
+#content main .box-info li .bx {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#content main .box-info li:nth-child(1) .bx {
+    background: var(--light-blue);
+    color: var(--blue);
+}
+
+#content main .box-info li:nth-child(2) .bx {
+    background: var(--light-orange);
+    color: var(--orange);
+}
+
+#content main .box-info li:nth-child(3) .bx {
+    background: var(--light-yellow);
+    color: var(--yellow);
+}
+
+#content main .box-info li:nth-child(4) .bx {
+    background: var(--light-orange);
+    color: var(--orange);
+}
+
+#content main .box-info li .text h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* TABLE */
+#content main .table-data {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    width: 100%;
+    color: var(--dark);
+}
+
+#content main .table-data > div {
+    border-radius: 20px;
+    background: var(--light);
+    padding: 24px;
+    margin-left: 40px; /*Jarak dari sisi kiri */
+    margin-top: 50px; /*Jarak dari atas / geser ke bawah */
+}
+
+#content main .table-data .head {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    margin-bottom: 24px;
+    min-width: 420px;
+}
+
+#content main .table-data .head h3 {
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Seacrh */
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    padding: 8px 30px 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.3s ease;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.search-box input.active {
+    width: 150px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-box i {
+    position: absolute;
+    right: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
+#filterIcon {
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+#filterIcon.active {
+    transform: rotate(180deg);
+}
+
+#content main .table-data .order {
+    flex-grow: 1;
+    flex-basis: 500px;
+}
+
+#content main .table-data .order table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#content main .table-data .order table th {
+    padding-bottom: 12px;
+    font-size: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--grey);
+}
+
+#content main .table-data .order table td {
+    padding: 16px 0;
+    font-size: 15px;
+}
+
+#content main .table-data .order table tr td:first-child {
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    padding-left: 16px;
+}
+
+#content main .table-data .order table td img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+}
+
+#content main .table-data .order table tbody tr:hover {
+    background: var(--grey);
+}
+
+#content main .table-data .todo {
+    flex-grow: 1;
+    flex-basis: 300px;
+}
+/* TABLE END */
+
+/* RESVONSIVE */
+@media screen and (max-width: 768px) {
+    #sidebar {
+        width: 200px;
+    }
+
+    #content {
+        width: calc(100% - 60px);
+        left: 200px;
+    }
+
+    #content nav .nav-link {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #content nav form .form-input input {
+        display: none;
+    }
+    #content nav form .form-input button {
+        width: auto;
+        height: auto;
+        background: transparent;
+        border-radius: none;
+        color: var(--dark);
+    }
+    #content nav form.show .form-input input {
+        display: block;
+        width: 100%;
+    }
+    #content nav form.show .form-input button {
+        width: 36px;
+        height: 100%;
+        border-radius: 0 36px 36px 0;
+        color: var(--light);
+        background: var(--red);
+    }
+    #content nav form.show ~ .nontifikasi,
+    #content nav form.show ~ .profile {
+        display: none;
+    }
+}

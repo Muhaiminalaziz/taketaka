@@ -1,0 +1,241 @@
+* {
+    font-family: "poppins", sans serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    background: linear-gradient(to right, #0575e6, #00f260);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top-header .logo {
+    width: 100px; /* Ukuran logo */
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-wrapper {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+
+.login-box .top-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top-header span {
+    font-size: 14px;
+    color: #555;
+}
+
+.top-header header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #333;
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field input {
+    width: 84%;
+    padding: 12px 15px 12px 40px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-field input:hover {
+    background-color: #f9fff8; /* latar lebih terang saat hover */
+    border: 1.7px solid #05c24d; /* default lebih tebal */
+    transition: all 0.3s ease;
+}
+
+.input-field i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 18px;
+}
+
+.submit {
+    width: 100%;
+    padding: 12px;
+    border-radius: 50px;
+    border: none;
+    background: #0575e6;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit:hover {
+    background: #0345a0;
+}
+
+.bottom {
+    display: flex;
+    justify-content: flex-end; /* Pindah ke kanan */
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+.bottom label a {
+    color: #0575e6;
+    text-decoration: none;
+}
+
+.alert-error {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffe5e5;
+    color: #333;
+    padding: 6px 20px;
+    border: 1px solid #f5c2c7;
+    border-radius: 8px;
+    width: fit-content;
+    max-width: 400px;
+    font-size: 14px;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeSlide 0.3s ease;
+}
+
+.close-btn {
+    background: transparent;
+    border: 2px solid #0a66c2;
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
+}
+
+/* Pop Up Nontifikasi Berhasil */
+#popupNotif {
+    display: none;
+}
+
+.popup-notif {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Kotak Notifikasi */
+.notif-content {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.4s ease;
+    width: 350px; /* Ukuran diperlebar */
+    height: 230px;
+    max-width: 90vw;
+}
+
+/* Ikon lingkaran */
+.icon-success {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #00c000;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-success i {
+    color: #00c000;
+    font-size: 55px;
+}
+
+/* Teks */
+.notif-content h2 {
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #111;
+}
+
+.notif-content p {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.notif-content {
+    position: relative; /* Tambahkan agar posisi absolute anak bekerja */
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    left: 9%;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.4s ease;
+    width: 400px;
+    max-width: 90vw;
+}
+
+.notif-content button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 22px;
+    background: #00c000;
+    color: white;
+    font-weight: bold;
+    border: 3px solid #dadada; /* Outline abu-abu */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.notif-content button:hover {
+    background: #009900;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

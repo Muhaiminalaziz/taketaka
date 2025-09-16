@@ -1,0 +1,665 @@
+/*Google Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/*Variabel*/
+:root {
+    --green-color: #3cb815;
+    --light-green-color: #c0eb7b;
+    --orange-color: #ff7e00;
+    --light-orange-color: #f75f1d;
+    --text-color: #1a2428;
+    --bg-color: #fff;
+    --poppines: "Poppins", sans-serif;
+    --lato: "Lato", sans-serif;
+
+    --light: #f9f9f9;
+
+    --blue: #3c91e6;
+
+    --light-blue: #cfe8ff;
+
+    --grey: #eee;
+
+    --dark-grey: #aaaaaa;
+
+    --dark: #342e37;
+
+    --red: #db504a;
+
+    --yellow: #ffce26;
+
+    --light-yellow: #fff2c6;
+
+    --orange: #fd7238;
+
+    --light-orange: #ffe0d3;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--grey);
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--light);
+    z-index: 1000;
+    font-family: var(lato);
+    transition: 0.3s ease;
+    overflow-x: hidden;
+}
+
+#sidebar.hide {
+    width: 60px;
+}
+
+#sidebar .brand {
+    font-size: 30px;
+    font-weight: 700;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    color: var(--blue);
+}
+#sidebar .brand .bx {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+}
+#sidebar .side-menu {
+    width: 100%;
+    margin-top: 48px;
+    padding-left: 0;
+}
+#sidebar .side-menu li {
+    height: 48px;
+    background: transparent;
+    margin-left: 6px;
+    border-radius: 48px 0 0 48px;
+    padding: 5px 4px 0;
+}
+#sidebar .side-menu li.active {
+    background: var(--grey);
+    position: relative;
+}
+
+#sidebar .side-menu li.active::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -40px;
+    right: 0;
+    box-shadow: 20px 20px 0 var(--grey);
+    z-index: -1;
+}
+#sidebar .side-menu li.active::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    bottom: -40px;
+    right: 0;
+    box-shadow: 20px -20px 0 var(--grey);
+    z-index: -1;
+}
+#sidebar .side-menu li a {
+    width: 100%;
+    height: 90%;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+#sidebar.hide .side-menu li.active a {
+    color: var(--blue);
+}
+
+#sidebar.hide .side-menu li a {
+    width: calc(48px - (4px * 2));
+    transition: width 0.3s ease;
+}
+
+#sidebar .side-menu li a.logout {
+    color: var(--red);
+}
+
+#sidebar .side-menu.top li a:hover {
+    color: var(--blue);
+}
+#sidebar .side-menu li a .bx {
+    min-width: calc(60px - ((4px + 6px) * 2));
+    display: flex;
+    justify-content: center;
+}
+/* Sidebar */
+
+/* Content */
+#content {
+    position: relative;
+    width: calc(100% - 280px);
+    left: 280px;
+    transition: all 0.3 ease;
+}
+
+#sidebar.hide ~ #content {
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+#sidebar.hide ~ #content nav {
+    left: 60px;
+    width: calc(100% - 60px);
+    transition: all 0.3 ease;
+}
+
+/* Nabvar */
+#content nav {
+    position: fixed;
+    top: 0;
+    left: 280px; /* geser nav sejajar setelah sidebar */
+    width: calc(100% - 280px); /* agar tidak nabrak sidebar */
+    height: 56px;
+    background: var(--light);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    font-family: var(--lato);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+#content nav .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara ikon bell dan gambar */
+    margin-left: auto;
+}
+
+#content nav::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -40px;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: -20px -20px var(--light);
+}
+
+#content nav a {
+    color: var(--dark);
+}
+#content nav .bx.bx-menu {
+    cursor: pointer;
+}
+
+#content nav .nav-link {
+    font-size: 16px;
+}
+
+#content nav .nav-link:hover {
+    color: var(--blue);
+}
+
+#content nav form {
+    max-width: 400px;
+    width: 100%;
+    margin-right: auto;
+}
+#content nav form .form-input {
+    display: flex;
+    align-items: center;
+    height: 36px;
+}
+#content nav form .form-input input {
+    flex-grow: 1;
+    padding: 0 16px;
+    height: 100%;
+    border: none;
+    background: var(--grey);
+    border-radius: 36px 0 0 36px;
+    outline: none;
+    width: 100%;
+}
+#content nav form .form-input button {
+    width: 36px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--blue);
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 0 36px 36px 0;
+    cursor: pointer;
+}
+
+#content nav .profile img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Pop Up Style */
+.modal {
+    position: fixed; /* ✅ selalu di tengah layar */
+    top: 50%; /* posisikan di tengah vertikal */
+    left: 50%; /* posisikan di tengah horizontal */
+    transform: translate(-50%, -50%); /* geser biar pas tengah */
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    margin: 8% auto;
+    padding: 70px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 900px;
+    min-height: 300px;
+    max-height: 75vh; /* agar tidak kepanjangan di layar kecil */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal-image label {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    margin-top: -15px; /* geser ke atas */
+    margin-bottom: 8px; /* tetap ada sedikit jarak bawah */
+}
+
+.close {
+    font-family: "poppins", sans-serif;
+    color: #aaa;
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ff0000;
+    transform: scale(1.2); /* Perbesar sedikit saat di-hover */
+    transition: all 0.3s ease;
+}
+
+.modal-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Form Input barang */
+.form-container {
+    max-width: 400px;
+    margin: -30px auto 30px auto; /* Kurangi margin-top dari 30px → 10px */
+    padding: 20px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.form-container label {
+    font-family: "poppins", sans-serif;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 30px; /* Geser ke kanan sejajar dengan input yang ada ikon di kiri */
+}
+
+.form-container input {
+    font-family: "poppins", sans-serif;
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f8ff;
+    border: none;
+    border-radius: 0;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container input:focus {
+    border-bottom: 2px solid var(--green-color); /* Warna garis bawah saat fokus */
+    outline: none;
+}
+
+.input-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-icon i {
+    font-family: "poppins", sans-serif;
+    font-size: 20px;
+    color: #444;
+    min-width: 20px;
+}
+
+.input-icon input {
+    font-family: "poppins", sans-serif;
+    flex: 1;
+    padding: 10px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Sandi */
+.input-split {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-split input {
+    font-family: "poppins", sans-serif;
+    flex: 1;
+    padding: 10px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.show-password {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    gap: 6px;
+    margin-top: 10px;
+    margin-left: 30px; /* Geser seluruh baris ke kanan */
+}
+
+.show-password input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #2e7d32;
+    cursor: pointer;
+    transform: translateY(-2px); /* Naik sedikit agar sejajar dengan label */
+}
+
+.show-password label {
+    font-family: "poppins", sans-serif;
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    line-height: 1;
+    padding: 6px 0;
+}
+
+/* Uploud File */
+.upload-box {
+    font-family: "poppins", sans-serif;
+    position: relative;
+    top: -15px; /* Geser ke atas */
+    border: 2px dashed #ccc;
+    padding: 16px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    background-color: #f9f9f9;
+    margin: 20px auto 5px auto;
+}
+
+.upload-box label {
+    font-family: "poppins", sans-serif;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.upload-box input[type="file"] {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.upload-box img {
+    width: 50%;
+    max-width: 50x;
+    display: none;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+/* BTN */
+.btn-group {
+    display: flex;
+    justify-content: center; /* tetap di tengah */
+    gap: 10px; /* jarak antar tombol */
+    margin-top: 20px;
+    transform: translateX(15px); /* geser ke kanan sedikit */
+}
+
+/* Tombol BTN */
+.btn {
+    font-family: "poppins", sans-serif;
+    padding: 8px 20px;
+    background-color: var(--green-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 160px;
+    text-align: center;
+}
+
+/* Tombol Batal */
+.btn.btn-delete {
+    background-color: transparent;
+    color: var(--green-color);
+    border: 2px solid var(--green-color);
+}
+
+.btn.btn-delete:hover {
+    background-color: var(--green-color);
+    color: white;
+}
+
+/* ========== TABLET (max-width: 1024px) ========== */
+/* Untuk layar di bawah 1024px */
+@media (max-width: 1024px) {
+    .user-management {
+        padding: 24px;
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .user-card {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .input-split input {
+        font-size: 15px;
+    }
+
+    .user-actions button {
+        font-size: 0.95rem;
+        padding: 10px 14px;
+    }
+}
+
+/* Untuk layar di bawah 768px */
+@media (max-width: 768px) {
+    .toolbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .toolbar input,
+    .add-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .user-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .input-split {
+        flex-direction: column;
+    }
+
+    .input-split input {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .user-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .role {
+        margin-top: 6px;
+        text-align: center;
+    }
+
+    .user-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .user-actions button {
+        width: 100%;
+    }
+}
+
+/* Untuk layar di bawah 480px */
+@media (max-width: 480px) {
+    .user-management {
+        padding: 16px;
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .toolbar input {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .add-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .role {
+        font-size: 0.85rem;
+        padding: 4px 10px;
+        display: block;
+        margin: 6px auto;
+    }
+
+    .form-group {
+        padding: 0 10px;
+    }
+
+    .input-split input {
+        font-size: 13.5px;
+    }
+
+    .show-password {
+        font-size: 13px;
+    }
+
+    .user-actions button {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+        flex: 1;
+    }
+}
+
+/* Untuk layar di bawah 360px */
+@media (max-width: 360px) {
+    .user-management {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .toolbar input,
+    .add-btn {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    .role {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+
+    .input-split input {
+        font-size: 13px;
+        padding: 9px;
+    }
+
+    .show-password {
+        font-size: 12.5px;
+    }
+
+    .user-actions button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,1020 @@
+/*Google Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/*Variabel*/
+:root {
+    --poppines: "Poppins", sans-serif;
+    --lato: "Lato", sans-serif;
+    --green-color: #3cb815;
+    --light-green-color: #c0eb7b;
+    --orange-color: #ff7e00;
+    --light-orange-color: #f75f1d;
+    --text-color: #1a2428;
+    --bg-color: #fff;
+    --light: #f9f9f9;
+
+    --blue: #3c91e6;
+
+    --light-blue: #cfe8ff;
+
+    --grey: #eee;
+
+    --dark-grey: #aaaaaa;
+
+    --dark: #342e37;
+
+    --red: #db504a;
+
+    --yellow: #ffce26;
+
+    --light-yellow: #fff2c6;
+
+    --orange: #fd7238;
+
+    --light-orange: #ffe0d3;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--grey);
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--light);
+    z-index: 1000;
+    font-family: var(lato);
+    transition: 0.3s ease;
+    overflow-x: hidden;
+}
+
+#sidebar.hide {
+    width: 60px;
+}
+
+.brand .text {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-color--);
+    position: relative;
+    top: -5px; /* geser ke atas sedikit */
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* jarak logo dengan teks */
+    padding: 15px;
+    text-decoration: none;
+}
+
+.brand .logo-img {
+    width: 50px; /* atur ukuran logo */
+    height: 40px;
+    object-fit: contain;
+    border-radius: 6px; /* opsional: kasih sudut rounded */
+    margin-top: -5px;
+}
+
+#sidebar .side-menu {
+    width: 100%;
+    margin-top: 48px;
+    padding-left: 0;
+}
+
+#sidebar .side-menu li {
+    height: 48px;
+    background: transparent;
+    margin-left: 6px;
+    border-radius: 48px 0 0 48px;
+    padding: 5px 4px 0;
+}
+#sidebar .side-menu li.active {
+    background: var(--grey);
+    position: relative;
+}
+
+#sidebar .side-menu li.active::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -40px;
+    right: 0;
+    box-shadow: 20px 20px 0 var(--grey);
+    z-index: -1;
+}
+#sidebar .side-menu li.active::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    bottom: -40px;
+    right: 0;
+    box-shadow: 20px -20px 0 var(--grey);
+    z-index: -1;
+}
+#sidebar .side-menu li a {
+    width: 100%;
+    height: 90%;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+#sidebar.hide .side-menu li.active a {
+    color: var(--blue);
+}
+
+#sidebar.hide .side-menu li a {
+    width: calc(48px - (4px * 2));
+    transition: width 0.3s ease;
+}
+
+#sidebar .side-menu li a.logout {
+    color: var(--red);
+}
+
+#sidebar .side-menu.top li a:hover {
+    color: var(--blue);
+}
+#sidebar .side-menu li a .bx {
+    min-width: calc(60px - ((4px + 6px) * 2));
+    display: flex;
+    justify-content: center;
+}
+/* Sidebar */
+
+/* Content */
+#content {
+    position: relative;
+    width: calc(100% - 280px);
+    left: 280px;
+    transition: all 0.3 ease;
+}
+
+#sidebar.hide ~ #content {
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+#sidebar.hide ~ #content nav {
+    left: 60px;
+    width: calc(100% - 60px);
+    transition: all 0.3 ease;
+}
+
+/* Nabvar */
+#content nav {
+    position: fixed;
+    top: 0;
+    left: 280px; /* geser nav sejajar setelah sidebar */
+    width: calc(100% - 280px); /* agar tidak nabrak sidebar */
+    height: 56px;
+    background: var(--light);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    font-family: var(--lato);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+#content nav .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara ikon bell dan gambar */
+    margin-left: auto;
+}
+
+#content nav::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: -40px;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: -20px -20px var(--light);
+}
+
+#content nav a {
+    color: var(--dark);
+}
+#content nav .bx.bx-menu {
+    cursor: pointer;
+}
+
+#content nav .nav-link {
+    font-size: 16px;
+}
+
+#content nav .nav-link:hover {
+    color: var(--blue);
+}
+
+#content nav .profile img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* NAVBAR END*/
+
+/* Pop Up profile*/
+.account-popup {
+    width: 300px;
+    height: 300px;
+    padding: 40px;
+    background: #e8f3e8;
+    border-radius: 25px;
+    box-shadow: 0 2px 15px rgba(1, 1, 0.2, 0.5);
+    font-family: "Segoe UI", sans-serif;
+    text-align: center;
+    z-index: 1000;
+    position: fixed; /* tetap menempel layar */
+    top: 60px;
+    right: 40px; /* ✅ geser lebih ke kanan */
+    display: none;
+}
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-email {
+    font-weight: bold;
+    font-size: 15px; /* dari 15px */
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top: -25px; /* sedikit naik */
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 30px; /* dari 30px */
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #e74c3c;
+    transform: scale(1.1);
+}
+
+.account-avatar img {
+    width: 70px; /* dari 90px */
+    background: #d6e7d6;
+    padding: 6px;
+    border-radius: 50%;
+    margin: 0, 0;
+}
+
+.welcome-text {
+    margin-top: -1px; /* atau sesuaikan seperti -5px, -15px */
+}
+
+.btn-outline {
+    border: 1px solid #333;
+    padding: 10px 30px; /* lebih kecil */
+    border-radius: 25px;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.account-actions,
+.btn-link-wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 14px 0;
+    margin-right: 3px;
+}
+
+.account-actions button,
+.btn-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 24px;
+    gap: 10px;
+    flex: 1;
+    background-color: white;
+    border-radius: 36px;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--green-color);
+    min-width: 120px;
+    white-space: nowrap;
+    height: var(--btn-height, 45px); /* default tinggi 55px */
+}
+
+.account-actions button i,
+.btn-link i {
+    font-size: 25px;
+}
+
+.account-actions button:hover,
+.btn-link:hover {
+    background-color: #1dde1d;
+    color: #d6e7d6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+footer {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Produk layout */
+.products {
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading h1 {
+    font-family: "Poppins", sans-serif;
+    margin-top: 90px; /* ✅ atur seberapa jauh ke bawah */
+    text-align: center; /* opsional, biar rapi */
+    font-size: 1.4rem; /* opsional, atur ukuran */
+}
+
+.products-conatiner {
+    display: flex;
+    grid-template-columns: (auto-fit, minmax(280px auto));
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.products-conatiner .box {
+    width: 700px;
+    min-height: 200px; /* minimal tinggi awal */
+    height: auto; /* ✅ tinggi fleksibel mengikuti isi */
+    padding: 30px;
+    background-color: #f5f5f5;
+    box-shadow: 1px 2px 11px 4px rgb(14 55 54 /10%);
+    border-radius: 15px;
+    position: relative;
+    border-bottom: 7px solid var(--green-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px; /* jarak antar elemen di dalam box */
+}
+
+.sosmed-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sosmed-icon {
+    font-size: 40px;
+    color: #000;
+    margin-right: 15px;
+}
+
+.sosmed-info {
+    flex-grow: 1;
+}
+
+.sosmed-info p {
+    margin: 3px 0 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.sosmed-actions {
+    display: flex;
+    gap: 10px;
+}
+/* Product End */
+
+/* Btn Tambah */
+.btn-add {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--green-color);
+    color: var(--bg-color);
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-add i {
+    font-size: 18px;
+}
+
+.btn-add:hover {
+    background: var(--light-orange-color);
+    color: var(--dark);
+}
+
+/* Pop Up Style */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 50; /* ✅ lebih rendah dari sidebar (1000) dan nav (100) */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: 100vw;
+    height: 110vh;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 13% auto; /* ganti dari 10% menjadi 5% */
+    padding: 20px;
+    border-radius: 15px;
+    width: 50%;
+    max-width: 700px;
+    min-height: 62vh;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close {
+    font-family: "Poppins", sans-serif;
+    color: #aaa;
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ff0000;
+    transform: scale(1.2); /* Perbesar sedikit saat di-hover */
+    transition: all 0.3s ease;
+}
+
+.modal-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Form Input barang */
+.form-container {
+    width: 55%;
+    max-width: 600px;
+    margin: 10px auto 10px auto; /* Ubah margin-top: 10px agar lebih naik */
+    padding: 20px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.form-container label {
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: -60px;
+}
+
+.form-container input {
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container input:focus {
+    /* Fokus dengan warna hijau */
+    border-color: var(--green-color);
+    outline: none;
+}
+
+.modal,
+.modal-content,
+.modal-body,
+.form-container,
+.input-icon input {
+    box-sizing: border-box;
+}
+
+/* Input dengan icon */
+.input-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 500px; /* atau bisa 300px, 400px sesuai kebutuhan */
+    max-width: 500px; /* batasi panjang maksimum */
+    padding: 10px;
+    border-radius: 10px;
+    transform: translateX(-100px);
+}
+
+.input-icon i {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    color: #444;
+    min-width: 20px;
+}
+
+.input-icon input {
+    font-family: "Poppins", sans-serif;
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* BTN */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn-group button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    font-weight: 600;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-group .edit {
+    background-color: transparent;
+    color: var(--green-color);
+    border: 3px solid var(--green-color);
+}
+
+.btn-group .edit:hover {
+    background-color: var(--green-color);
+    color: var(--bg-color);
+}
+
+.btn-group .delete {
+    background-color: transparent;
+    color: red;
+    border: 3px solid red;
+}
+
+.btn-group .delete:hover {
+    background-color: red;
+    color: var(--bg-color);
+}
+
+/* BTN POP UP */
+.btn-modul {
+    display: flex;
+    justify-content: center; /* tetap di tengah */
+    gap: 10px; /* jarak antar tombol */
+    margin-top: 20px;
+}
+
+/* Tombol Hapus Transparan */
+.btn-hapus {
+    font-family: "Poppins", sans-serif;
+    display: inline-block;
+    padding: 8px 30px;
+    background-color: var(--green-color); /* default warna utama */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 5px;
+    cursor: pointer;
+    min-width: 150px; /* atur agar ukuran seragam */
+    text-align: center;
+}
+/* Tombol Simpan Transparan */
+.btn.btn-simpan {
+    font-family: "Poppins", sans-serif;
+    display: inline-block;
+    padding: 8px 30px; /* Sama seperti .btn-hapus */
+    background-color: transparent;
+    color: var(--green-color);
+    border: 2px solid var(--green-color);
+    border-radius: 50px; /* Sama seperti .btn-hapus */
+    font-size: 14px; /* Sama */
+    font-weight: 500; /* Sama */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 5px;
+    cursor: pointer;
+    min-width: 150px;
+    text-align: center;
+}
+
+.btn.btn-simpan:hover {
+    background-color: var(--green-color);
+    color: white;
+}
+
+/* Pop Up Nontifikasi Berhasil */
+#popupNotif {
+    display: none;
+}
+
+.popup-notif {
+    position: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Kotak Notifikasi */
+.notif-content {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.4s ease;
+    width: 350px; /* Ukuran diperlebar */
+    height: 230px;
+    max-width: 90vw;
+}
+
+.icon-success {
+    width: 80px; /* Ikon lingkaran */
+    height: 80px;
+    border: 2px solid #00c000;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-success i {
+    color: #00c000;
+    font-size: 55px;
+}
+
+/* Teks */
+.notif-content h2 {
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #111;
+}
+
+.notif-content p {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.notif-content {
+    position: relative; /* Tambahkan agar posisi absolute anak bekerja */
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.4s ease;
+    width: 400px;
+    max-width: 90vw;
+}
+
+.notif-content button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 22px;
+    background: #00c000;
+    color: white;
+    font-weight: bold;
+    border: 3px solid #dadada; /* Outline abu-abu */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.notif-content button:hover {
+    background: #009900;
+}
+
+/* Pop Up Gagal */
+.popup-notif-gagal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+.notif-content-gagal {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 8px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon-error {
+    font-size: 50px;
+    color: red;
+    border: 2px solid red;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-notif-gagal h2 {
+    margin: 10px 0 5px;
+    font-size: 22px;
+    font-weight: 600;
+    color: black;
+}
+
+.popup-notif-gagal p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 14px;
+}
+
+.popup-notif-gagal button {
+    padding: 8px 22px;
+    background: #00c000;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #c0c0c0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.popup-notif-gagal button:hover {
+    background: #009f00;
+}
+
+/* Nontikasi Hapus */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Box */
+.popup-box {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+    max-width: 90vw;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-icon.danger {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border: 2px solid red;
+    border-radius: 50%;
+    color: red;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-box h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.popup-box p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.popup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-yes {
+    background: #00c000;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 8px 22px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: red;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 8px 22px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* RESPONSIVE Update Produk*/
+@media (max-width: 768px) {
+    .products-conatiner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .products-conatiner .box {
+        width: 90%;
+    }
+
+    .product-info {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .product-name {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-conatiner .box {
+        padding: 25px;
+    }
+
+    .product-image {
+        max-height: 200px;
+    }
+
+    .description-text,
+    .justify-text {
+        font-size: 11px;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 13px;
+    }
+
+    .product-info {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* RESPONSIVE Pop Up*/
+@media (max-width: 768px) {
+    .products-conatiner .box img {
+        height: 130px;
+        max-height: 180px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-conatiner .box img {
+        height: 110px;
+        max-height: 150px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .products-conatiner .box img {
+        height: 90px;
+        max-height: 120px;
+        margin-top: 15px;
+    }
+}
